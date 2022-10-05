@@ -14,7 +14,7 @@ const dataSourceConfig: DataSourceOptions = {
 	database: process.env.DB_DATABASE,
 	namingStrategy: new SnakeNamingStrategy(),
 	entities: [],
-	migrations: [__dirname + '/src/migrations/*.ts'],
+	migrations: [__dirname + '/src/database/migrations/*.ts'],
 	charset: 'utf8mb4',
 	synchronize: false,
 	logging: false,
