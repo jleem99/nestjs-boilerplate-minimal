@@ -5,12 +5,13 @@ import { ormconfig } from 'ormconfig'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 
+const envFilePath = /^prod|Prod|production|Production$/.test(process.env.NODE_ENV ?? '')
+	? ['.env.production.local', '.env.production', '.env.local', '.env']
+	: ['.env.development.local', '.env.development', '.env.local', '.env']
+
 @Module({
 	imports: [
-		ConfigModule.forRoot({
-			isGlobal: true,
-			envFilePath: [`.${process.env.NODE_ENV}.env`, '.env'],
-		}),
+		ConfigModule.forRoot({ isGlobal: true, envFilePath }),
 		TypeOrmModule.forRoot(ormconfig),
 	],
 	controllers: [AppController],
