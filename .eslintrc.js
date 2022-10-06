@@ -6,11 +6,7 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['@typescript-eslint/eslint-plugin'],
-	extends: [
-		'eslint-config-jleem',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
-	],
+	extends: ['eslint-config-jleem'],
 	root: true,
 	env: {
 		node: true,
