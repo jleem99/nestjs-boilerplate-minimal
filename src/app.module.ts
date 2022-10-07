@@ -4,10 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ormconfig } from 'ormconfig'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-
-const envFilePath = /^prod|Prod|production|Production$/.test(process.env.NODE_ENV ?? '')
-	? ['.env.production.local', '.env.production', '.env.local', '.env']
-	: ['.env.development.local', '.env.development', '.env.local', '.env']
+import { envFilePath } from './common/env-utils'
 
 @Module({
 	imports: [
