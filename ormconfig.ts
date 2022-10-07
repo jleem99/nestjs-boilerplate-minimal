@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 import dotenv from 'dotenv'
 import { DataSource, DataSourceOptions } from 'typeorm'
+import { isDev } from 'src/common/env-utils'
 import { SnakeNamingStrategy } from 'src/common/snake-naming.strategy'
 
 dotenv.config()
@@ -23,7 +24,7 @@ const dataSourceConfig: DataSourceOptions = {
 export const ormconfig: TypeOrmModuleOptions = {
 	...dataSourceConfig,
 	autoLoadEntities: true,
-	keepConnectionAlive: true,
+	keepConnectionAlive: isDev(),
 }
 
 export const dataSource = new DataSource(dataSourceConfig)
