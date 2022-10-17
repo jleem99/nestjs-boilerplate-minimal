@@ -18,7 +18,7 @@ const dataSourceConfig: DataSourceOptions = {
 	migrations: [__dirname + '/src/database/migrations/*.ts'],
 	charset: 'utf8mb4',
 	synchronize: false,
-	logging: false,
+	logging: isDev(),
 }
 
 export const ormconfig: TypeOrmModuleOptions = {
